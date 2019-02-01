@@ -7,14 +7,24 @@
 //
 
 import UIKit
+import MapKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var map: MKMapView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let lat = -7.285770
+        let lon = 112.631612
+        
+        let coordinate = CLLocationCoordinate2D.init(latitude: lat,
+                                                     longitude: lon)
+        
+        let zoom = MKCoordinateSpan.init(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        
+        map.region = MKCoordinateRegion.init(center: coordinate, span: zoom)
     }
-
-
 }
 
